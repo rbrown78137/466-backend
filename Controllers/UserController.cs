@@ -79,7 +79,7 @@ namespace ABABI.Controllers
         [HttpGet("/register/{username}/{password}/{email}/{name}")]
         public async Task<ActionResult<User>> RegisterUser(String username, String password, String email, String name)
         {
-            User user = new User { Name = username, Password = password, Email = email, Username = username, AvatarId = 0, WhiteList = false, LastLoginTime = DateTime.Now};
+            User user = new User { Name = name, Password = password, Email = email, Username = username, AvatarId = 0, WhiteList = false, LastLoginTime = DateTime.Now};
 
             var upload = ControllerLogic.encryptUser(user);
             _context.Users.Add(upload);
